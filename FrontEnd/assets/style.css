@@ -186,6 +186,29 @@ footer nav ul {
 	margin: 2em
 }
 
+#portfolio nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 30px;
+	height: 40px;
+}
+
+#portfolio nav :first-child {
+	color: white;
+	background-color: #1D6154;
+}
+
 .btn-filter {
-	background-color: red;
+	height: 100%;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 100%;
+	color: #1D6154;
+	align-content: center;
+	background-color: white;
+	border-radius: 24px;
+    padding: 4px 19px 4px 19px;
+	border: #1D6154 solid 1px;
 }
