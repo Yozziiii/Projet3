@@ -15,8 +15,7 @@ if (projet === null) {
 const gallery = document.querySelector(".gallery")
 
 function gTravaux(projet) {
-
-
+    document.querySelector(".gallery").innerHTML = "";
 
     for (let pj of projet) {
         const figure = document.createElement("figure")
@@ -55,38 +54,33 @@ function gfilterButton(categoryR) {
     navElement.appendChild(filterAll)
 
     filterAll.addEventListener("click", function () {
-        console.log("suisla")
-         gTravaux(projet)
+        gTravaux(projet)
     })
 
 
 
-    for (let cat of categoryR) {
+    const monSet = new Set();
 
-        const filterButton = document.createElement("button")
-        filterButton.innerText = cat.name
-        filterButton.classList.add("btn-filter")
-        navElement.appendChild(filterButton)
-        
+for (let cat of categoryR) {
+    if (!monSet.has(cat.name)) {
+
+        monSet.add(cat.name); 
+
+        const filterButton = document.createElement("button");
+        filterButton.innerText = cat.name;
+        filterButton.classList.add("btn-filter");
+        navElement.appendChild(filterButton);
+
         filterButton.addEventListener("click", function () {
-            console.log(filterButton)
             const projetFiltrees = projet.filter(function (pj) {
-                return pj.category.name === filterButton.innerText
-            })
-            document.querySelector(".gallery").innerHTML = "";
-            gTravaux(projetFiltrees)
-            console.log(projetFiltrees)
-        }
-    )
-
-
+                return pj.category.name === filterButton.innerText;
+            });
+            gTravaux(projetFiltrees);
+            console.log(projetFiltrees);
+        });
+    } else {
+        console.log("Doublon :", cat.name + " ,catégorie déjà existante ! ");
     }
-
-
 }
-
-
-
+}
 gfilterButton(categoryR)
-
-
