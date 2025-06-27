@@ -290,3 +290,10 @@ footer p {
 	text-decoration: underline;
 }
 
+.errorMsg {
+	text-align: center;
+	color: red;
+	margin-top: 10px ;
+}
+
+/*CSS une fois login*/

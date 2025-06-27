@@ -1,16 +1,18 @@
 /*import {functionName} from "./secondaire.js"*/
+    const token = localStorage.getItem("token")
+    if(token){
+        console.log("connecter")
+        const logElement = document.querySelector("nav li:nth-child(3)")
+        logElement.innerText = "Logout"
+        logElement.classList.add("hdLog")
+        console.log("element" + logElement)
 
-let projet = window.localStorage.getItem('works');
-
-if (projet === null) {
+    }
     const reponse = await fetch("http://localhost:5678/api/works");
-    projet = await reponse.json();
+    const projet = await reponse.json();
 
     const valeurWorks = JSON.stringify(projet)
     window.localStorage.setItem("works", valeurWorks)
-} else {
-    projet = JSON.parse(projet);
-}
 
 const gallery = document.querySelector(".gallery")
 
