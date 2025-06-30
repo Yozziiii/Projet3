@@ -2,10 +2,49 @@
     const token = localStorage.getItem("token")
     if(token){
         console.log("connecter")
+        /*login to logout */ 
         const logElement = document.querySelector("nav li:nth-child(3)")
         logElement.innerText = "Logout"
         logElement.classList.add("hdLog")
-        console.log("element" + logElement)
+
+        /* remove catégorie
+        if(document.querySelector("#portfolio nav")) {
+            document.querySelector("#portfolio nav").remove()
+        }*/
+
+
+        /* Bandeau */
+
+        const body = document.querySelector("body")
+        const header = document.querySelector("header")
+        const barEdit = document.createElement("div")
+        body.insertBefore(barEdit, header)
+        barEdit.classList.add("barEdit")
+        
+        
+        const divEdit = document.createElement("div")
+        barEdit.appendChild(divEdit)
+
+        divEdit.classList.add("divEdit")
+        const iconEdit = document.createElement("i")
+        iconEdit.classList.add("fa-solid", "fa-pen-to-square");
+        const pEdit = document.createElement("p")
+        pEdit.innerText = "Mode édition"
+        divEdit.appendChild(iconEdit)
+        divEdit.appendChild(pEdit)
+
+        /* btn modifier */
+        const parent = document.querySelector("#portfolio")
+        const gallery = document.querySelector(".gallery")
+        
+        const btnEdition = document.createElement("a")
+        const cloneEdition = divEdit.cloneNode(true)
+        cloneEdition.classList.add("btnEdition")
+        btnEdition.appendChild(cloneEdition)
+        parent.insertBefore(btnEdition , gallery)
+        
+
+
 
     }
     const reponse = await fetch("http://localhost:5678/api/works");
