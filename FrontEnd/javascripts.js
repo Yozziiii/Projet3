@@ -1,4 +1,4 @@
-import {Popup, gTravauxPopup, eventPopup}from "./popup.js";
+import {Popup}from "./popup.js";
 
 const reponse = await fetch("http://localhost:5678/api/works");
 const projet = await reponse.json();
@@ -34,7 +34,7 @@ function gTravaux(projet) {
 }
 
 gTravaux(projet)
-console.log(projet)
+console.log(projet.title)
 
 function gfilterButton(categoryR) {
 
@@ -163,7 +163,6 @@ if (token) {
     bandeau()
     btnModifier()
     Popup(projet)
-    eventPopup()
     
     
 

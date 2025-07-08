@@ -36,22 +36,18 @@ export function Popup(projet) {
     popup.appendChild(parentProjet)
     popup.appendChild(ajouterPhoto)
     gTravauxPopup(projet)
+    eventPopup()
+    trashcan()
 }
 
+export function supp() {
+    
+    /*
+    const trash = {
+        work = event.target.
+    };*/
 
-export function trashcan() {
-
-    const iTrashcan = document.querySelector("fa-trash-can")
-    iTrashcan.addEventListener("click", function (event) {
-        event.preventDefault
-        /*if(event.target === iTrashcan)
-        const trash = {
-            work = event.target. 
-            email: event.target.querySelector("[name=email]").value,
-            password: event.target.querySelector("[name=mdp]").value
-        };*/
-
-        const chargeUtile = JSON.stringify(log);
+    const chargeUtile = JSON.stringify(trash);
 
 
         fetch("http://localhost:5678/api/users/login", {
@@ -59,9 +55,8 @@ export function trashcan() {
             headers: { "Content-Type": "application/json" },
             body: chargeUtile
         })
-    })
+} 
 
-}
 
 export function gTravauxPopup(projet) {
     const parent = document.querySelector(".parentPj")
@@ -73,16 +68,35 @@ export function gTravauxPopup(projet) {
 
         const iTrashcan = document.createElement("i")
         iTrashcan.classList.add("fa-solid", "fa-trash-can")
-        console.log(iTrashcan)
-
+        
         const img = document.createElement("img")
         img.src = pj.imageUrl
         img.alt = pj.title
+        
+        const id = pj.id
+        console.log(id)
+        iTrashcan.setAttribute('id', id)
+        console.log(iTrashcan)
 
         figure.appendChild(img)
         figure.appendChild(iTrashcan)
+        trashcan(iTrashcan)
+        
         
     }
+
+}
+
+export function trashcan(iTrashcan) {
+    console.log(iTrashcan)
+    
+    iTrashcan.addEventListener("click", function (event) {
+        event.preventDefault
+        console.log("cliquer trashcan n° : " + iTrashcan.id)
+        /*if(event.target === iTrashcan)*/
+
+        
+    })
 
 }
 
