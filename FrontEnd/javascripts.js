@@ -1,66 +1,23 @@
-/*import {functionName} from "./secondaire.js"*/
-    const token = localStorage.getItem("token")
-    if(token){
-        console.log("connecter")
-        /*login to logout */ 
-        const logElement = document.querySelector("nav li:nth-child(3)")
-        logElement.innerText = "Logout"
-        logElement.classList.add("hdLog")
+import {Popup, gTravauxPopup, eventPopup}from "./popup.js";
 
-        /* remove catégorie
-        if(document.querySelector("#portfolio nav")) {
-            document.querySelector("#portfolio nav").remove()
-        }*/
+const reponse = await fetch("http://localhost:5678/api/works");
+const projet = await reponse.json();
+console.log(projet)
 
-
-        /* Bandeau */
-
-        const body = document.querySelector("body")
-        const header = document.querySelector("header")
-        const barEdit = document.createElement("div")
-        body.insertBefore(barEdit, header)
-        barEdit.classList.add("barEdit")
-        
-        
-        const divEdit = document.createElement("div")
-        barEdit.appendChild(divEdit)
-
-        divEdit.classList.add("divEdit")
-        const iconEdit = document.createElement("i")
-        iconEdit.classList.add("fa-solid", "fa-pen-to-square");
-        const pEdit = document.createElement("p")
-        pEdit.innerText = "Mode édition"
-        divEdit.appendChild(iconEdit)
-        divEdit.appendChild(pEdit)
-
-        /* btn modifier */
-        const parent = document.querySelector("#portfolio")
-        const gallery = document.querySelector(".gallery")
-        
-        const btnEdition = document.createElement("a")
-        const cloneEdition = divEdit.cloneNode(true)
-        cloneEdition.classList.add("btnEdition")
-        btnEdition.appendChild(cloneEdition)
-        parent.insertBefore(btnEdition , gallery)
-        
-
-
-
-    }
-    const reponse = await fetch("http://localhost:5678/api/works");
-    const projet = await reponse.json();
-
-    const valeurWorks = JSON.stringify(projet)
-    window.localStorage.setItem("works", valeurWorks)
+const valeurWorks = JSON.stringify(projet)
+window.localStorage.setItem("works", valeurWorks)
 
 const gallery = document.querySelector(".gallery")
+
+const categoryRep = await fetch("http://localhost:5678/api/categories");
+const categoryR = await categoryRep.json();
 
 function gTravaux(projet) {
     document.querySelector(".gallery").innerHTML = "";
 
     for (let pj of projet) {
         const figure = document.createElement("figure")
-      
+
         const title = document.createElement("p")
         title.innerText = pj.title
 
@@ -73,14 +30,11 @@ function gTravaux(projet) {
         figure.appendChild(title)
 
     }
-    
+
 }
 
 gTravaux(projet)
-
-
-const categoryRep = await fetch("http://localhost:5678/api/categories");
-const categoryR = await categoryRep.json();
+console.log(projet)
 
 function gfilterButton(categoryR) {
 
@@ -102,26 +56,129 @@ function gfilterButton(categoryR) {
 
     const monSet = new Set();
 
-for (let cat of categoryR) {
-    if (!monSet.has(cat.name)) {
+    for (let cat of categoryR) {
+        if (!monSet.has(cat.name)) {
 
-        monSet.add(cat.name); 
+            monSet.add(cat.name);
 
-        const filterButton = document.createElement("button");
-        filterButton.innerText = cat.name;
-        filterButton.classList.add("btn-filter");
-        navElement.appendChild(filterButton);
+            const filterButton = document.createElement("button");
+            filterButton.innerText = cat.name;
+            filterButton.classList.add("btn-filter");
+            navElement.appendChild(filterButton);
 
-        filterButton.addEventListener("click", function () {
-            const projetFiltrees = projet.filter(function (pj) {
-                return pj.category.name === filterButton.innerText;
+            filterButton.addEventListener("click", function () {
+                const projetFiltrees = projet.filter(function (pj) {
+                    return pj.category.name === filterButton.innerText;
+                });
+                gTravaux(projetFiltrees);
+                console.log(projetFiltrees);
             });
-            gTravaux(projetFiltrees);
-            console.log(projetFiltrees);
-        });
-    } else {
-        console.log("Doublon :", cat.name + " ,catégorie déjà existante ! ");
+        } else {
+            console.log("Doublon :", cat.name + " ,catégorie déjà existante ! ");
+        }
     }
 }
+
+
+function logout () {
+    const logElement = document.querySelector("nav li:nth-child(3)")
+    logElement.innerText = "Logout"
+    logElement.classList.add("hdLog")
+    console.log("logout")
+    logElement.addEventListener("click", function (event) {
+        event.preventDefault
+        localStorage.removeItem("token")
+        window.location.href = "index.html"
+        console.log("Vous êtes déconnecter")
+    })
 }
-gfilterButton(categoryR)
+
+    /* Bandeau */
+function bandeau () {
+    
+    const body = document.querySelector("body")
+    const header = document.querySelector("header")
+    const barEdit = document.createElement("div")
+    body.insertBefore(barEdit, header)
+    barEdit.classList.add("barEdit")
+
+    const btnBandeau = document.createElement("a")
+    btnBandeau.classList.add("aEdit")
+    barEdit.appendChild(btnBandeau)
+    
+    const divEdit = document.createElement("div")
+    btnBandeau.appendChild(divEdit)
+    
+    divEdit.classList.add("divEdit")
+    const iconEdit = document.createElement("i")
+    iconEdit.classList.add("fa-solid", "fa-pen-to-square");
+    const pEdit = document.createElement("p")
+    pEdit.innerText = "Mode édition"
+    divEdit.appendChild(iconEdit)
+    divEdit.appendChild(pEdit)
+}
+
+function btnModifier () {
+
+    /* H2 Projet */ 
+    const titreH2 = document.querySelector("#portfolio h2")
+   
+    /* btn modifier */
+    const parent = document.querySelector("#portfolio")
+    parent.classList.add("loginPf")
+    const gallery = document.querySelector(".gallery")
+    gallery.classList.add("loginGal")
+   
+    const btnEdition = document.createElement("button")
+    btnEdition.classList.add("btnEdit")
+
+    const divEdit = document.createElement("div")
+    divEdit.classList.add("divEdit")
+    const iconEdit = document.createElement("i")
+    iconEdit.classList.add("fa-solid", "fa-pen-to-square");
+    const pEdit = document.createElement("p")
+    pEdit.innerText = "modifier"
+    divEdit.appendChild(iconEdit)
+    divEdit.appendChild(pEdit)
+
+    btnEdition.appendChild(divEdit)
+   
+    const titreBtn = document.createElement("div")
+    titreBtn.classList.add("divH")
+    titreBtn.appendChild(titreH2)
+    titreBtn.appendChild(btnEdition)
+   
+    parent.insertBefore(titreBtn, gallery)
+}
+
+
+
+
+const token = localStorage.getItem("token")
+if (token) {
+    console.log("connecter")
+    
+
+    logout()
+    bandeau()
+    btnModifier()
+    Popup(projet)
+    eventPopup()
+    
+    
+
+    
+    
+
+
+} else {
+
+    gfilterButton(categoryR)
+
+}
+
+
+
+
+
+
