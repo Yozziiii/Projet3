@@ -1,11 +1,14 @@
-import {Popup}from "./popup.js";
+import {PopupMaster}from "./popup.js";
+let projet = []
+async function getProjet () {
+    const reponse = await fetch("http://localhost:5678/api/works");
+    projet = await reponse.json();
+    const valeurWorks = JSON.stringify(projet)
+    window.localStorage.setItem("works", valeurWorks)
+    console.log(projet)
+}
 
-const reponse = await fetch("http://localhost:5678/api/works");
-const projet = await reponse.json();
-console.log(projet)
-
-const valeurWorks = JSON.stringify(projet)
-window.localStorage.setItem("works", valeurWorks)
+getProjet()
 
 const gallery = document.querySelector(".gallery")
 
@@ -34,7 +37,6 @@ function gTravaux(projet) {
 }
 
 gTravaux(projet)
-console.log(projet.title)
 
 function gfilterButton(categoryR) {
 
@@ -158,26 +160,13 @@ const token = localStorage.getItem("token")
 if (token) {
     console.log("connecter")
     
-
     logout()
     bandeau()
     btnModifier()
-    Popup(projet)
+    PopupMaster(projet, token, categoryR)
     
-    
-
-    
-    
-
-
 } else {
 
     gfilterButton(categoryR)
 
 }
-
-
-
-
-
-

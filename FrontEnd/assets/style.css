@@ -383,36 +383,41 @@ footer p {
 	top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-	padding: 25px 50px 35px 50px;
-	flex-direction: column;
-	gap: 5px;
 	background-color: white;
 	min-width: 50%;
 	max-width: 50%;
-	min-height: fit-content;
+	min-height: 50%;
 	max-height: 700px;
-	display: flex;
 	z-index: 1;
 	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	gap: 5px;
 }
 
-.active {
+
+.popup .divBtn {
+	width: 100%;
 	display: flex;
 }
 
-.popup .btnCroix {
-	position: relative;
-	top: -5px;
-	right: -24px;
-	padding: 0;
+.popup button {
 	border: none;
 	background-color: inherit;
 	cursor: pointer;
-	align-self: end;
 }
 
-.popup .btnCroix .fa-xmark:before {
-	display: flex;
+.popup .divBtn .btnCroix {
+	justify-items: end;
+}
+
+.popup .divBtn .btnArrow {
+	display: none;
+	justify-self: start;
+}
+
+.popup .btnCroix .fa-arrow-left:before {
 	justify-content: center;
 	align-items: center;
 	width: 24px;
@@ -420,7 +425,37 @@ footer p {
 	font-size: 18px;
 }
 
-.popup h2 {
+.popup .btnCroix .fa-xmark:before {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 21px;
+	height: 21px;
+	font-size: 15px;
+}
+/*
+.popup .divBtn {
+	display: flex;
+	justify-content: space-between;
+	}
+	
+	.popup .btnArrow {
+		display: none;
+	}
+
+*/
+
+
+
+.popUne {
+	display: flex;
+	flex-direction: column;
+	padding: 25px 50px 35px 50px;
+	gap: 5px;
+}
+
+
+.popUne h2 , .popDeux h2 {
 	align-self: center;
 	font-family: "Work Sans";
 	color: black;
@@ -429,7 +464,7 @@ footer p {
 	font-weight: 400;
 }
 
-.popup .parentPj {
+.popUne .parentPj {
 	position: relative;
 	min-width: 100%;
 	height: 50%;
@@ -443,7 +478,7 @@ footer p {
 	border-bottom: 1px solid #B3B3B3;
 }
 
-.popup .parentPj figure {
+.popUne .parentPj figure {
 	display: flex;
 	position: relative;
 	height: fit-content;
@@ -451,13 +486,13 @@ footer p {
 	max-width: 16%;
 }
 
-.popup .parentPj figure img {
+.popUne .parentPj figure img {
 	position: relative;
 	box-sizing: border-box;
 	width: 100%;
 }
 
-.popup .fa-trash-can {
+.popUne .fa-trash-can {
 	position: relative;
 	top: 5px;
 	right: 22px;
@@ -475,7 +510,7 @@ footer p {
 	font-size: 10px;
 }
 
-.popup .addPhoto {
+.popUne .addPhoto {
 	border: none;
 	cursor: pointer;
 	color: white;
@@ -486,4 +521,24 @@ footer p {
 	font-weight: 700;
 	font-size: 14px;
 	line-height: 100%;
+}
+
+/*2ème popup*/
+
+
+.popDeux {
+	padding: 20px;
+	display: none;
+	flex-direction: column;
+}
+
+.popDeux .parentAdd {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+
+.active {
+	display: flex;
 }
