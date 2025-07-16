@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,48 +91,70 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
 	background-color: #FFFEF8;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 50px ;
+	margin-bottom: 50px;
 	padding-top: 110px;
 }
+
 section {
 	margin: 50px 0
 }
 
-h1{
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -73,26 +163,28 @@ h1{
 	color: #B1663C
 }
 
-h1 > span {
+h1>span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
-;
+	;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
-nav li  {
+
+nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
@@ -105,13 +197,16 @@ nav li a {
 li a:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -121,6 +216,7 @@ li a:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -128,10 +224,12 @@ li a:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -144,20 +242,24 @@ li a:hover {
 	width: 100%;
 
 }
+
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+
+#contact>* {
 	text-align: center;
 
 }
-#contact h2{
+
+#contact h2 {
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
@@ -168,23 +270,25 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
 footer {
@@ -225,7 +329,7 @@ footer p {
 	align-content: center;
 	background-color: white;
 	border-radius: 24px;
-    padding: 4px 19px 4px 19px;
+	padding: 4px 19px 4px 19px;
 	border: #91beb6 solid 1px;
 }
 
@@ -260,13 +364,14 @@ footer p {
 	margin-bottom: 100px;
 }
 
-#loginForm h2{
+#loginForm h2 {
 	margin-bottom: 20px;
 	text-align: center;
 }
+
 #loginForm form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
@@ -278,10 +383,11 @@ footer p {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-#loginForm input[type="submit"]  {
+#loginForm input[type="submit"] {
 	width: fit-content;
 	padding: 0px 40px;
 }
+
 #loginForm label {
 	margin: 2em 0 1em 0;
 }
@@ -294,7 +400,7 @@ footer p {
 .errorMsg {
 	text-align: center;
 	color: red;
-	margin-top: 10px ;
+	margin-top: 10px;
 }
 
 /*CSS une fois login*/
@@ -350,14 +456,14 @@ footer p {
 	flex-flow: row;
 	align-items: center;
 	gap: 10px;
-} 
+}
 
 .divEdit i {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 16px;
-	width: 16px	;
+	width: 16px;
 }
 
 .divEdit.btnEdition {
@@ -370,10 +476,10 @@ footer p {
 	display: none;
 	position: fixed;
 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100vh;
-    width: 100vw;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100vh;
+	width: 100vw;
 	background-color: rgba(255, 255, 255, 0.3);
 	z-index: 1;
 }
@@ -381,13 +487,12 @@ footer p {
 .popup {
 	position: fixed;
 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	background-color: white;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #C0C0C0;
 	min-width: 50%;
 	max-width: 50%;
 	min-height: 50%;
-	max-height: 700px;
 	z-index: 1;
 	border-radius: 15px;
 	display: flex;
@@ -400,6 +505,8 @@ footer p {
 .popup .divBtn {
 	width: 100%;
 	display: flex;
+	justify-content: end;
+	align-items: center;
 }
 
 .popup button {
@@ -408,44 +515,26 @@ footer p {
 	cursor: pointer;
 }
 
-.popup .divBtn .btnCroix {
-	justify-items: end;
-}
-
 .popup .divBtn .btnArrow {
 	display: none;
-	justify-self: start;
 }
 
-.popup .btnCroix .fa-arrow-left:before {
+.popup .btnArrow .fa-arrow-left:before {
 	justify-content: center;
 	align-items: center;
-	width: 24px;
-	height: 24px;
-	font-size: 18px;
+	width: 21px;
+	height: 21px;
+	font-size: 21px;
 }
 
 .popup .btnCroix .fa-xmark:before {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 21px;
-	height: 21px;
-	font-size: 15px;
+	width: 24px;
+	height: 24px;
+	font-size: 12px;
 }
-/*
-.popup .divBtn {
-	display: flex;
-	justify-content: space-between;
-	}
-	
-	.popup .btnArrow {
-		display: none;
-	}
-
-*/
-
-
 
 .popUne {
 	display: flex;
@@ -455,7 +544,8 @@ footer p {
 }
 
 
-.popUne h2 , .popDeux h2 {
+.popUne h2,
+.popDeux h2 {
 	align-self: center;
 	font-family: "Work Sans";
 	color: black;
@@ -465,12 +555,14 @@ footer p {
 }
 
 .popUne .parentPj {
+	box-sizing: border-box;
+	overflow-y: auto;
 	position: relative;
-	min-width: 100%;
+	min-width: fit-content;
 	height: 50%;
 	display: flex;
 	flex-flow: row wrap;
-	align-content: center;
+	
 	margin-top: 25px;
 	margin-bottom: 30px;
 	padding: 10px 0px 40px 0px;
@@ -479,6 +571,7 @@ footer p {
 }
 
 .popUne .parentPj figure {
+	box-sizing: border-box;
 	display: flex;
 	position: relative;
 	height: fit-content;
@@ -527,17 +620,94 @@ footer p {
 
 
 .popDeux {
-	padding: 20px;
+	flex-wrap: wrap;
+	padding-top: 10px;
 	display: none;
 	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	gap: 30px;
+	height: 100%;
+	width: 100%;
+
 }
 
-.popDeux .parentAdd {
+/* addPhotoForm */
+.popDeux .addPhotoForm {
+	width: 55%;
 	display: flex;
 	flex-direction: column;
-	
+	justify-content: center;
+	align-content: center;
+	gap: 15px;
 }
 
+i.fa-regular.fa-image::before {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 76px;
+	height: 76px;
+	font-size: 65px;
+
+}
+
+
+
+
+/* parentAdd */
+
+.popDeux .parentAdd {
+	background-color: #E8F1F6;
+	width: 100%;
+	height: 15%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.popDeux input#image {
+	display: none;
+}
+
+.popDeux .labelAdd {
+	cursor: pointer;
+	padding: 10px 0 15px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.popDeux .labelAdd .labelImg {
+	display: none;
+	height: 100%;
+	width: 100%;
+	
+}
+.popDeux .labelAdd .labelImg.act {
+	display: block;
+}
+
+
+.addPhotoForm input, select {
+	border: none;
+	height: 50px;
+	box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.52);
+}
+
+.addPhotoForm button {
+    color: white;
+    background-color: #A7A7A7;
+    padding: 10px 50px;
+    border-radius: 25px;
+    align-self: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+}
 
 .active {
 	display: flex;

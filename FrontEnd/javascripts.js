@@ -1,11 +1,20 @@
 import {PopupMaster}from "./popup.js";
+document.addEventListener("click", function (e){
+    console.log("e target : " + e.target)
+})
+window.addEventListener("beforeunload", function (e) {
+    console.trace("trace target : " + e.target)
+    console.log("reload page")
+})
+
 let projet = []
-async function getProjet () {
+export async function getProjet () {
     const reponse = await fetch("http://localhost:5678/api/works");
     projet = await reponse.json();
     const valeurWorks = JSON.stringify(projet)
     window.localStorage.setItem("works", valeurWorks)
-    console.log(projet)
+    /*console.log(projet)*/
+    return projet
 }
 
 getProjet()
@@ -15,7 +24,7 @@ const gallery = document.querySelector(".gallery")
 const categoryRep = await fetch("http://localhost:5678/api/categories");
 const categoryR = await categoryRep.json();
 
-function gTravaux(projet) {
+export function gTravaux(projet) {
     document.querySelector(".gallery").innerHTML = "";
 
     for (let pj of projet) {
