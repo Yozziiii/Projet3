@@ -1,11 +1,4 @@
 import {PopupMaster}from "./popup.js";
-document.addEventListener("click", function (e){
-    console.log("e target : " + e.target)
-})
-window.addEventListener("beforeunload", function (e) {
-    console.trace("trace target : " + e.target)
-    console.log("reload page")
-})
 
 let projet = []
 export async function getProjet () {
@@ -168,7 +161,8 @@ function btnModifier () {
 const token = localStorage.getItem("token")
 if (token) {
     console.log("connecter")
-    
+    const header = document.querySelector("header")
+    header.style.marginTop = "110px"
     logout()
     bandeau()
     btnModifier()

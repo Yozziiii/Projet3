@@ -84,8 +84,6 @@ function gTravauxPopup(projet, token) {
         img.alt = pj.title
 
         const id = pj.id
-        /*iTrashcan.setAttribute('id', id)*/
-        /*console.log(iTrashcan)*/
 
         figure.appendChild(img)
         figure.appendChild(iTrashcan)
@@ -115,6 +113,7 @@ function trashcan(token, iTrashcan, id, gTravauxPopup) {
             }).then(() => {
                 return getProjet()
             }).then((newProjet) => {
+                gTravaux(newProjet)
                 gTravauxPopup(newProjet, token)
             }).catch((err) => {
                 console.log("catch err : " + err)
@@ -145,7 +144,6 @@ function popDeux(categoryR) {
     inputAdd.id = "image"
     inputAdd.name = "image"
     inputAdd.accept = ".jpg, .png"
-    inputAdd.required = true
     
     const labelAdd = document.createElement("label")
     labelAdd.htmlFor = "image"
@@ -161,7 +159,7 @@ function popDeux(categoryR) {
     const pText = document.createElement("p")
     pText.innerText = "+ Ajouter photo"
     pText.classList.add("pAjout")
-
+    
     const infoAdd = document.createElement("p")
     infoAdd.innerText = "jpg, png : 4mo max"
     infoAdd.classList.add("infoAdd")
@@ -177,12 +175,22 @@ function popDeux(categoryR) {
     labelCat.innerText = ("Catégorie")
     const inputCat = document.createElement("select")
     inputCat.name = "category"
-    categoryR.forEach(function (cat) {
+    const option = document.createElement("option")
+    option.innerText = ""
+    option.disabled = true;
+    option.selected = true;
+    inputCat.appendChild(option)
+
+    categoryR.forEach(function (cat){
         const option = document.createElement("option")
         option.value = cat.id
         option.innerText = cat.name
         inputCat.appendChild(option)
     })
+    console.log(option)
+
+    const span = document.createElement("span")
+    
 
     const btnValider = document.createElement("button")
     btnValider.type = "submit"
@@ -205,22 +213,33 @@ function popDeux(categoryR) {
     formPhoto.appendChild(inputTitre)
     formPhoto.appendChild(labelCat)
     formPhoto.appendChild(inputCat)
+    formPhoto.appendChild(span)
 
     formPhoto.appendChild(btnValider)
+    changeForm()
 }
 
 
 function submitForm(token) {
     const submit = document.querySelector(".addPhotoForm")
+    const inputImg = document.querySelector('input[type="file"]')
+    const img = document.querySelector(".labelImg")
     const btn = document.querySelector(".addPhotoForm button")
+    const select = document.querySelector(".addPhotoForm select")
+
+    const icon = document.querySelector(".fa-image")
+    const pText = document.querySelector(".pAjout")
+    const infoAdd = document.querySelector(".infoAdd")
+
+    console.log("select : ", select[0].value) 
     console.log("btn: " + btn)
     console.log(token)
-    changeForm()
+    
 
     submit.addEventListener("input", function (event) {
         event.preventDefault()
         
-        if(submit.checkValidity()){
+        if(select.value !== "" && submit.checkValidity()){
             btn.style.backgroundColor= "#1D6154"
         }else{
             console.log("error")
@@ -246,12 +265,20 @@ function submitForm(token) {
         })
         .then(rep => { return rep.json() })
         .then(() => {
-            console.log(newProjet)
             return getProjet()
         }).then((newProjet) => {
             gTravauxPopup(newProjet, token)
             gTravaux(newProjet)
+            inputImg.value = ""
+            img.src = ""
+            img.classList.remove("act")
+            icon.style.display = "block"
+            pText.style.display = "block"
+            infoAdd.style.display = "block"
             submit.reset()
+            select.selectedIndex = 0
+            btn.style.backgroundColor= ""
+            cacherPopup()
         })
         
         

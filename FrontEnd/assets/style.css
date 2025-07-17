@@ -147,7 +147,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 50px;
-	padding-top: 110px;
+	margin-top: 50px;
 }
 
 section {
@@ -182,6 +182,11 @@ nav ul {
 	align-items: center;
 	list-style-type: none;
 
+}
+
+nav ul img {
+	width: 22px;
+	height: 22px;
 }
 
 nav li {
@@ -480,7 +485,7 @@ footer p {
 	transform: translate(-50%, -50%);
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(0, 0, 0, 0.3);
 	z-index: 1;
 }
 
@@ -489,14 +494,15 @@ footer p {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #C0C0C0;
-	min-width: 50%;
+	background-color: white;
+	min-width: fit-content;
 	max-width: 50%;
 	min-height: 50%;
 	z-index: 1;
-	border-radius: 15px;
+	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	padding: 15px;
 	gap: 5px;
 }
@@ -539,8 +545,11 @@ footer p {
 .popUne {
 	display: flex;
 	flex-direction: column;
-	padding: 25px 50px 35px 50px;
+	justify-content: center;
+	align-items: center;
 	gap: 5px;
+	width: min-content;
+	margin: 0 65px;
 }
 
 
@@ -557,15 +566,14 @@ footer p {
 .popUne .parentPj {
 	box-sizing: border-box;
 	overflow-y: auto;
-	position: relative;
-	min-width: fit-content;
-	height: 50%;
+	min-width: 466px;
+	max-width: 62%;
+	max-height: 50%;
 	display: flex;
 	flex-flow: row wrap;
-	
 	margin-top: 25px;
 	margin-bottom: 30px;
-	padding: 10px 0px 40px 0px;
+	padding: 10px 0px 20px 0px;
 	gap: 10px;
 	border-bottom: 1px solid #B3B3B3;
 }
@@ -574,21 +582,20 @@ footer p {
 	box-sizing: border-box;
 	display: flex;
 	position: relative;
-	height: fit-content;
-	min-width: 16%;
-	max-width: 16%;
+	width: 85px;
+	height: 125px;
+	padding-bottom: 20px;
 }
 
 .popUne .parentPj figure img {
-	position: relative;
 	box-sizing: border-box;
 	width: 100%;
 }
 
 .popUne .fa-trash-can {
-	position: relative;
+	position: absolute;
 	top: 5px;
-	right: 22px;
+	right: 5px;
 	z-index: 1;
 	display: flex;
 	justify-content: center;
@@ -614,6 +621,7 @@ footer p {
 	font-weight: 700;
 	font-size: 14px;
 	line-height: 100%;
+	margin-bottom: 15px;
 }
 
 /*2ème popup*/
@@ -628,12 +636,13 @@ footer p {
 	justify-content: center;
 	gap: 30px;
 	height: 100%;
+	min-width: 610px;
 	width: 100%;
-
 }
 
 /* addPhotoForm */
 .popDeux .addPhotoForm {
+	min-width: 416px;
 	width: 55%;
 	display: flex;
 	flex-direction: column;
@@ -659,8 +668,8 @@ i.fa-regular.fa-image::before {
 
 .popDeux .parentAdd {
 	background-color: #E8F1F6;
-	width: 100%;
-	height: 15%;
+	max-width: 100%;
+	max-height: 15%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -672,8 +681,10 @@ i.fa-regular.fa-image::before {
 }
 
 .popDeux .labelAdd {
+	display: flex;
+	max-width: 260px;
+	max-height: 150px;
 	cursor: pointer;
-	padding: 10px 0 15px 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -681,27 +692,54 @@ i.fa-regular.fa-image::before {
 	gap: 10px;
 }
 
+.popDeux .labelAdd .fa-image {
+	color: #B9C5CC;
+	padding-top: 10px;
+}
+
+.popDeux .labelAdd .pAjout {
+	color: #306685;
+	background-color: #CBD6DC;
+	border-radius: 25px;
+	padding: 10px 35px;
+}
+
+.popDeux .labelAdd  .infoAdd {
+	color: #444444;
+	padding-bottom: 20px;
+}
+
 .popDeux .labelAdd .labelImg {
 	display: none;
 	height: 100%;
 	width: 100%;
+	max-width: 260px;
+	max-height: 150px;
 	
 }
 .popDeux .labelAdd .labelImg.act {
 	display: block;
 }
 
+.addPhotoForm {
+	margin-bottom: 40px;
+}
 
 .addPhotoForm input, select {
 	border: none;
 	height: 50px;
-	box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.52);
+	box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.1);
+}
+
+.addPhotoForm span {
+	border: 1px solid #B3B3B3;
+	margin: 25px 0 20px 0;
 }
 
 .addPhotoForm button {
     color: white;
     background-color: #A7A7A7;
-    padding: 10px 50px;
+    padding: 10px 90px;
     border-radius: 25px;
     align-self: center;
     font-weight: 700;
