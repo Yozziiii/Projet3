@@ -86,8 +86,13 @@ function gfilterButton(categoryR) {
 
 function logout () {
     const logElement = document.querySelector("nav li:nth-child(3)")
-    logElement.innerText = "Logout"
     logElement.classList.add("hdLog")
+    const logEle = document.querySelector(".hdLog a:first-child")
+    logEle.style.display="none" 
+    const aLogElement = document.createElement("a")
+    aLogElement.href = "index.html"
+    aLogElement.innerText = "Logout"
+    logElement.appendChild(aLogElement)
     console.log("logout")
     logElement.addEventListener("click", function (event) {
         event.preventDefault

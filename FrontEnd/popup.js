@@ -99,11 +99,11 @@ function trashcan(token, iTrashcan, id, gTravauxPopup) {
     iTrashcan.addEventListener("click", function (event) {
         event.preventDefault()
         event.stopPropagation()
-
+        let confirmation = confirm("Souhaitez-vous supprimer ce travail ?")
         console.log(token)
         console.log(id)
 
-        if (event.target === iTrashcan) {
+        if (event.target === iTrashcan && confirmation === true) {
             fetch(`http://localhost:5678/api/works/${id}`, {
                 method: "DELETE",
                 headers: {
